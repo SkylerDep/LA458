@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Basketball Players</h2>
+
+<p id="demo"></p>
+
+<script>
+var basketball players = ["Kobe Bryant", "Lebron James", "Dwayne Wade", "Shaq", "Karl Anthony-Towns", "Steph Curry", "Kyrie Irving", "Kwhai Leonard"];
+document.getElementById("demo").innerHTML = basketball players;
+</script>
+
+</body>
+</html>
+
