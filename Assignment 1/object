@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Object</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+var person = {firstName:"Skyler", lastName:"DePerry", age:22, eyeColor:"green"};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old" + " with " + eyeColor " eyes.";
+</script>
+
+</body>
+</html>
