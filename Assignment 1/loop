@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+var text = "";
+var i;
+for (i = 10; i < 20; i++) {
+  text += "The number is " + i + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
