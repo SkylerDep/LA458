@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="action_page">
+  <label for="age">Age:</label>
+  <input type="text" id="Age" name="Age"><br><br>
+  <label for="state">State you are from:</label>
+  <input type="text" id="state" name="state"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>Click the "Submit" button and the form-data will be sent to a page on the server called "action_page".</p>
+
+</body>
+</html>
