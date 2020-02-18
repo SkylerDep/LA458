@@ -58,7 +58,7 @@
         //loop through the array and add a marker for each
         for (var i = 0; i < towns.length; i++) {
             marker = new L.marker([towns[i][0], towns[i][1]])
-                .bindPopup(towns[i][3])
+                .bindPopup(towns[i][2])
                 .addTo(map);
         }
 
