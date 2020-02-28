@@ -22,16 +22,15 @@ Zoom out to see how the green circle gets smaller while the orange circle marker
      width: 500px;
      height: 400px;
 }
-
-var map = L.map('map').setView([42.0, -93.620], 12);
+var map = L.map('map').setView([42.0, -93.634], 12);
 
 L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 //this will add one traditional marker
-L.marker([42.026798, -93.620178]).addTo(map)
-   .bindPopup("Ames, Iowa");
+L.marker([42.00185, -93.63474]).addTo(map)
+   .bindPopup("Professor Seeger's office at the Research Park");
 
 
 
@@ -39,7 +38,7 @@ L.marker([42.026798, -93.620178]).addTo(map)
 //----------Adding a circle (overlay) that will scale with map----------
 
 //circle must include a radius option expressed in meters. Additional options are the same as those for a path (http://leafletjs.com/reference-1.3.0.html#path) and can be included to chage the circle from the defualt blue.  Comment out to see impact. Note no var was declared for the circle, but I could have done so.
- L.circle([42.021700, -93.640020], {
+ L.circle([42.00185, -93.66], {
 	radius: 1200,
 	fill: true, //could be false
 	color: 'green', //the outline color
@@ -56,7 +55,7 @@ L.marker([42.026798, -93.620178]).addTo(map)
 //----------Adding a circle marker that will scale with map----------
 
 //circle markers must include a radius option expressed in pixels. Additional options are the same as those for a path (http://leafletjs.com/reference-1.3.0.html#path) and can be included to chage the circle from the defualt blue.  Comment out to see impact.
-var exampleMarker = new L.circleMarker([42.028080, -93.651917], {
+var exampleMarker = new L.circleMarker([42.00185, -93.60], {
     radius: 43,  //in pixels
 	fillColor: 'orange',
 	color: "#000",  //this is black color outline
