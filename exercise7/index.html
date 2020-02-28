@@ -1,1 +1,80 @@
-This is exercise7
+<html>
+<head>
+	
+	<title>Layers Control Tutorial - Leaflet</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+
+	<style>
+	html, body {
+	height: 100%;
+	margin: 0;
+	}
+	#map {
+	width: 600px;
+	height: 400px;
+	}
+	</style>
+
+	
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+	var cities = L.layerGroup();
+
+	L.marker([44.973785, -93.270836]).bindPopup('This is Minneapolis, Minnesota.').addTo(cities),
+	L.marker([44.950707, -93.101234]).bindPopup('This is St. Paul, Minnesota.').addTo(cities);
+
+
+
+	var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+	'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+	'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2t5bGVyZGVwZXJyeSIsImEiOiJjazc1bDRiam0wa2hvM2VzOXo3OGg2MXN5In0.tz3ujUMCP4W8ftN2hkr0lw';
+
+	var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+ var OpenMapSurfer_ElementsAtRisk = L.tileLayer('https://maps.heigit.org/openmapsurfer/tiles/elements_at_risk/webmercator/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> | Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+ var Hydda_RoadsAndLabels = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+ 
+	var map = L.map('map', {
+	center: [44.960425, -93.201141],
+	zoom: 9,
+	layers: [OpenStreetMap_Mapnik, OpenMapSurfer_ElementsAtRisk, Hydda_RoadsAndLabels]
+	});
+
+	var baseLayers = {
+	"OpenStreetMap_Mapnik": OpenStreetMap_Mapnik,
+	"OpenMapSurfer_ElementsAtRisk": OpenMapSurfer_ElementsAtRisk,
+ "Hydda_RoadsAndLabels": Hydda_RoadsAndLabels
+	};
+
+	var overlays = {
+	"Cities": cities
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
+</script>
+
+
+
+</body>
+</html>
